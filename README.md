@@ -17,7 +17,6 @@ A Python-3 (CPython >= 3.13.0) Interpreter written in Rust :snake: :scream:
 
 ## Usage
 
-**Check out our [online demo](https://rustpython.github.io/demo/) running on WebAssembly.**
 
 RustPython requires Rust latest stable version (e.g 1.67.1 at February 7th 2023). If you don't
 currently have Rust installed on your system you can do so by following the instructions at [rustup.rs](https://rustup.rs/).
@@ -28,7 +27,7 @@ To check the version of Rust you're currently running, use `rustc --version`. If
 To build RustPython locally, first, clone the source code:
 
 ```bash
-git clone https://github.com/RustPython/RustPython
+git clone https://github.com/usmans-dev01/RustPython-Interpreter.git
 ```
 
 RustPython uses symlinks to manage python libraries in `Lib/`. If on windows, running the following helps:
@@ -76,7 +75,7 @@ Once you've installed rustpython with SSL support, you can install pip by
 running:
 
 ```bash
-cargo install --git https://github.com/RustPython/RustPython --features ssl
+cargo install --git https://github.com/usmans-dev01/RustPython-Interpreter.git --features ssl
 rustpython --install-pip
 ```
 
