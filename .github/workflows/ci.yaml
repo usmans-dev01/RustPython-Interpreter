@@ -123,7 +123,7 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
@@ -181,7 +181,7 @@ jobs:
     name: Ensure compilation on various targets
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with:
           target: i686-unknown-linux-gnu
@@ -247,7 +247,7 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - uses: actions/setup-python@v5
@@ -312,7 +312,7 @@ jobs:
     name: Check Rust code with rustfmt and clippy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with:
             components: rustfmt, clippy
@@ -338,7 +338,7 @@ jobs:
       - name: install extra dictionaries
         run: npm install @cspell/dict-en_us @cspell/dict-cpp @cspell/dict-python @cspell/dict-rust @cspell/dict-win32 @cspell/dict-shell
       - name: spell checker
-        uses: streetsidesoftware/cspell-action@v6
+        uses: streetsidesoftware/cspell-action@v7
         with:
           files: '**/*.rs'
           incremental_files_only: true
@@ -348,7 +348,7 @@ jobs:
     name: Run tests under miri
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@master
         with:
             toolchain: nightly
@@ -365,7 +365,7 @@ jobs:
     name: Check the WASM package and demo
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
 
       - uses: Swatinem/rust-cache@v2
@@ -425,7 +425,7 @@ jobs:
     name: Run snippets and cpython tests on wasm-wasi
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with:
           target: wasm32-wasip1
