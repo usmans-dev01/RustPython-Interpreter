@@ -48,7 +48,7 @@ jobs:
 #            target: aarch64-pc-windows-msvc
       fail-fast: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
       - uses: cargo-bins/cargo-binstall@main
 
@@ -81,7 +81,7 @@ jobs:
         if: runner.os == 'Windows'
 
       - name: Upload Binary Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: rustpython-release-${{ runner.os }}-${{ matrix.platform.target }}
           path: target/rustpython-release-${{ runner.os }}-${{ matrix.platform.target }}*
@@ -89,7 +89,7 @@ jobs:
   build-wasm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: wasm32-wasip1
@@ -101,14 +101,14 @@ jobs:
         run: cp target/wasm32-wasip1/release/rustpython.wasm target/rustpython-release-wasm32-wasip1.wasm
 
       - name: Upload Binary Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: rustpython-release-wasm32-wasip1
           path: target/rustpython-release-wasm32-wasip1.wasm
 
       - name: install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
       - uses: mwilliamson/setup-wabt-action@v3
         with: { wabt-version: "1.0.30" }
       - name: build demo
@@ -139,7 +139,7 @@ jobs:
     needs: [build, build-wasm]
     steps:
       - name: Download Binary Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           path: bin
           pattern: rustpython-*
